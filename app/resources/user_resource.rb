@@ -8,6 +8,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :reviews,
+             resource: InteractResource
+
   # Indirect associations
 
 end
