@@ -4,25 +4,20 @@ class InteractsController < ApplicationController
 
   before_action :set_interact, only: %i[show edit update destroy]
 
-  # GET /interacts
   def index
     @q = Interact.ransack(params[:q])
     @interacts = @q.result(distinct: true).includes(:movie,
                                                     :user).page(params[:page]).per(10)
   end
 
-  # GET /interacts/1
   def show; end
 
-  # GET /interacts/new
   def new
     @interact = Interact.new
   end
 
-  # GET /interacts/1/edit
   def edit; end
 
-  # POST /interacts
   def create
     @interact = Interact.new(interact_params)
 
@@ -38,7 +33,6 @@ class InteractsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /interacts/1
   def update
     if @interact.update(interact_params)
       redirect_to @interact, notice: "Interact was successfully updated."
@@ -47,7 +41,6 @@ class InteractsController < ApplicationController
     end
   end
 
-  # DELETE /interacts/1
   def destroy
     @interact.destroy
     message = "Interact was successfully deleted."
@@ -68,12 +61,10 @@ class InteractsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_interact
     @interact = Interact.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def interact_params
     params.require(:interact).permit(:user_id, :rating, :review, :movie_id,
                                      :bookmark)
