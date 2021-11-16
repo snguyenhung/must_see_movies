@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "movies#index"
   resources :interacts
   devise_for :users
   resources :users
