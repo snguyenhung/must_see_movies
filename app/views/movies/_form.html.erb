@@ -1,7 +1,6 @@
 <% was_validated = movie.errors.any? %>
 
 <%= form_with(model: movie, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for title start -->
   <div class="form-group">
     <% title_class = "form-control" %>
     <% title_was_invalid = movie.errors.include?(:title) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :title %>
-    <!-- Input for title start -->
     <%= f.text_area :title, class: title_class, placeholder: "Enter title" %>
-    <!-- Input for title end -->
     <% if title_was_invalid %>
       <% movie.errors.full_messages_for(:title).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for title end -->
-  <!-- Label and input for year start -->
   <div class="form-group">
     <% year_class = "form-control" %>
     <% year_was_invalid = movie.errors.include?(:year) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :year %>
-    <!-- Input for year start -->
     <%= f.date_select :year, class: year_class, placeholder: "Enter year" %>
-    <!-- Input for year end -->
     <% if year_was_invalid %>
       <% movie.errors.full_messages_for(:year).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for year end -->
-  <!-- Label and input for duration start -->
   <div class="form-group">
     <% duration_class = "form-control" %>
     <% duration_was_invalid = movie.errors.include?(:duration) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :duration %>
-    <!-- Input for duration start -->
     <%= f.number_field :duration, class: duration_class, placeholder: "Enter duration" %>
-    <!-- Input for duration end -->
     <% if duration_was_invalid %>
       <% movie.errors.full_messages_for(:duration).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for duration end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = movie.errors.include?(:description) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% movie.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for image start -->
   <div class="form-group">
     <% image_class = "form-control" %>
     <% image_was_invalid = movie.errors.include?(:image) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :image %>
-    <!-- Input for image start -->
     <%= f.file_field :image, class: "form-control" %>
-    <!-- Input for image end -->
     <% if image_was_invalid %>
       <% movie.errors.full_messages_for(:image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for image end -->
-  <!-- Label and input for director_id start -->
   <div class="form-group">
     <% director_class = "form-control" %>
     <% director_was_invalid = movie.errors.include?(:director) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :director_id %>
-    <!-- Input for director_id start -->
     <%= f.collection_select :director_id, Director.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for director_id end -->
     <% if director_was_invalid %>
       <% movie.errors.full_messages_for(:director).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for director_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

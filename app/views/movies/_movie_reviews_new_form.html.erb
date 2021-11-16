@@ -1,47 +1,25 @@
-<!-- Form interact start -->
 <%= form_with(model: @interact, local: true) do |f| %>
-<!-- Form interact end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for rating start -->
   <div class="form-group">
     <%= f.label :rating %>
 
-    <!-- Input for rating start -->
     <%= f.text_field :rating, class: "form-control" %>
-    <!-- Input for rating end -->
   </div>
-  <!-- Label and input for rating end -->
 
-  <!-- Label and input for review start -->
   <div class="form-group">
     <%= f.label :review %>
-    <!-- Input for review start -->
     <%= f.text_area :review, rows: "3", class: "form-control" %>
-    <!-- Input for review end -->
   </div>
-  <!-- Label and input for review end -->
 
-  <!-- Label and input for movie_id start -->
-  <!-- Input for movie_id start -->
   <%= f.hidden_field :movie_id, value: @movie.id %>
-  <!-- Input for movie_id end -->
-  <!-- Label and input for movie_id end -->
 
-  <!-- Label and input for bookmark start -->
   <div class="form-group">
     <%= f.label :bookmark %>
 
-    <!-- Input for bookmark start -->
     <%= f.text_field :bookmark, class: "form-control" %>
-    <!-- Input for bookmark end -->
   </div>
-  <!-- Label and input for bookmark end -->
 
   <%= f.submit "Create interact", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -6,37 +6,27 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @interact.user.present? %>
           <%= link_to interact.user, interact.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Rating</dt>
-      <!-- Display rating start -->
       <dd><%= interact.rating %></dd>
-      <!-- Display rating end -->
 
       <dt>Review</dt>
-      <!-- Display review start -->
       <dd><%= interact.review %></dd>
-      <!-- Display review end -->
 
       <dt>Movie</dt>
-      <!-- Display movie_id start -->
       <dd>
         <% if @interact.movie.present? %>
           <%= link_to interact.movie, interact.movie %>
         <% end %>
       </dd>
-      <!-- Display movie_id end -->
 
       <dt>Bookmark</dt>
-      <!-- Display bookmark start -->
       <dd><%= interact.bookmark %></dd>
-      <!-- Display bookmark end -->
 
     </dl>
 
@@ -45,7 +35,6 @@
         <%= link_to_show_or_back interact, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link interact start -->
       <div class="col">
         <% if current_user == @interact.user %>
           <%= link_to edit_interact_url(interact), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -53,9 +42,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link interact end -->
 
-      <!-- Delete link interact start -->
       <div class="col">
         <% if current_user == @interact.user %>
           <%= link_to interact, method: :delete, data: { confirm: "Do you really want to delete this interact?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -63,7 +50,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link interact end -->
     </div>
   </div>
 

@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @movie.reviews.each do |interact| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to interact, interact %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == interact.user %>
           <%= link_to interact, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="movie_reviews_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "movies/movie_reviews_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 
