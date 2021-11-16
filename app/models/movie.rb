@@ -1,6 +1,10 @@
 class Movie < ApplicationRecord
   # Direct associations
 
+  has_many   :reviews,
+             :class_name => "Interact",
+             :dependent => :destroy
+
   has_many   :characters,
              :dependent => :destroy
 
