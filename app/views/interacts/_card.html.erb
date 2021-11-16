@@ -1,0 +1,61 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Interact #<%= interact.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= interact.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Rating</dt>
+      <!-- Display rating start -->
+      <dd><%= interact.rating %></dd>
+      <!-- Display rating end -->
+
+      <dt>Review</dt>
+      <!-- Display review start -->
+      <dd><%= interact.review %></dd>
+      <!-- Display review end -->
+
+      <dt>Movie</dt>
+      <!-- Display movie_id start -->
+      <dd><%= interact.movie_id %></dd>
+      <!-- Display movie_id end -->
+
+      <dt>Bookmark</dt>
+      <!-- Display bookmark start -->
+      <dd><%= interact.bookmark %></dd>
+      <!-- Display bookmark end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back interact, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link interact start -->
+      <div class="col">
+        <%= link_to edit_interact_url(interact), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link interact end -->
+
+      <!-- Delete link interact start -->
+      <div class="col">
+        <%= link_to interact, method: :delete, data: { confirm: "Do you really want to delete this interact?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link interact end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(interact.updated_at) %> ago
+  </div>
+</div>

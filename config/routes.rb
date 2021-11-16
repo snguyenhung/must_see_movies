@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interacts
   devise_for :users
   resources :users
   resources :characters
