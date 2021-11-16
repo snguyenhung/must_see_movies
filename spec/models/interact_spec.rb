@@ -4,6 +4,8 @@ RSpec.describe Interact, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:user) }
+
     it { should belong_to(:movie) }
 
     end

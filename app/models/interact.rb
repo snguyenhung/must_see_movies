@@ -1,6 +1,8 @@
 class Interact < ApplicationRecord
   # Direct associations
 
+  belongs_to :user
+
   belongs_to :movie
 
   # Indirect associations
