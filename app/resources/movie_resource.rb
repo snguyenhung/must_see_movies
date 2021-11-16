@@ -11,6 +11,9 @@ class MovieResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :reviews,
+             resource: InteractResource
+
   has_many   :characters
 
   # Indirect associations
