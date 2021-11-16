@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= interact.user_id %></dd>
+      <dd>
+        <% if @interact.user.present? %>
+          <%= link_to interact.user, interact.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Rating</dt>
@@ -22,7 +26,11 @@
 
       <dt>Movie</dt>
       <!-- Display movie_id start -->
-      <dd><%= interact.movie_id %></dd>
+      <dd>
+        <% if @interact.movie.present? %>
+          <%= link_to interact.movie, interact.movie %>
+        <% end %>
+      </dd>
       <!-- Display movie_id end -->
 
       <dt>Bookmark</dt>
