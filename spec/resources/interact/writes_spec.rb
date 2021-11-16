@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe InteractResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'interacts',
-          attributes: { }
-        }
+          type: "interacts",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe InteractResource, type: :resource do
       InteractResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { Interact.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { Interact.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:interact) { create(:interact) }
 
     let(:payload) do
       {
         data: {
           id: interact.id.to_s,
-          type: 'interacts',
-          attributes: { } # Todo!
-        }
+          type: "interacts",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe InteractResource, type: :resource do
       InteractResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { interact.reload.updated_at }
+      end.to change { interact.reload.updated_at }
       # .and change { interact.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:interact) { create(:interact) }
 
     let(:instance) do
       InteractResource.find(id: interact.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { Interact.count }.by(-1)
+      end.to change { Interact.count }.by(-1)
     end
   end
 end

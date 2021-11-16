@@ -15,5 +15,4 @@ class InteractResource < ApplicationResource
   belongs_to :movie
 
   # Indirect associations
-
 end

@@ -13,7 +13,7 @@ class Api::V1::InteractsController < Api::V1::GraphitiController
     interact = InteractResource.build(params)
 
     if interact.save
-      render jsonapi: interact, status: 201
+      render jsonapi: interact, status: :created
     else
       render jsonapi_errors: interact
     end
@@ -33,7 +33,7 @@ class Api::V1::InteractsController < Api::V1::GraphitiController
     interact = InteractResource.find(params)
 
     if interact.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: interact
     end

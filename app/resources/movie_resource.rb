@@ -24,5 +24,4 @@ class MovieResource < ApplicationResource
 
   many_to_many :user_reviews,
                resource: UserResource
-
 end

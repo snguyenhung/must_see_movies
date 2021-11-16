@@ -4,7 +4,7 @@ class Director < ApplicationRecord
   # Direct associations
 
   has_many   :movies,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Director < ApplicationRecord
   def to_s
     dob
   end
-
 end
